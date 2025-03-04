@@ -7,16 +7,17 @@ def mainMenu():
 
 mainMenu()
 choice = ''
+choices = ['1','2','3','4','5']
 
-while int(choice) != 5:
+while choice != 5:
     choice = input("Enter your chosen number: ")
-    if int(choice) not in range(1,6):
+    if choice not in choices:
         print("Your number is invalid! Please input from 1 to 5.")
-    elif int(choice) == 1:
+    elif choice == '1':
         crypt.cipher1()
-    elif int(choice) == 2:
+    elif choice == '2':
         crypt.cipher2()
-    elif int(choice) == 3:
+    elif choice == '3':
         crypt.cipher3()
-    elif int(choice) == 4:
+    elif choice == '4':
         crypt.cipher4()
