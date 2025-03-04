@@ -21,3 +21,6 @@ while choice != 5:
         crypt.cipher3()
     elif choice == '4':
         crypt.cipher4()
+    elif choice == '5':
+        print("Exiting program...")
+        exit()
