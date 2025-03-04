@@ -5,11 +5,11 @@ def mainMenu():
     for i in range (len(options)):
         print(options[i])
 
-mainMenu()
 choice = ''
 choices = ['1','2','3','4','5']
 
 while choice != 5:
+    mainMenu()
     choice = input("Enter your chosen number: ")
     if choice not in choices:
         print("Your number is invalid! Please input from 1 to 5.")
