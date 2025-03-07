@@ -3,7 +3,42 @@ import os
 
 def cipher1():
     # Aldjon Cipher
-    print("Aldjon Cipher selected")
+    print("Caesar Cipher [Aldjon] selected")
+    def caesar_cipher(text,shift,mode):
+        result =""
+        if mode == "decrypt":
+            shift = -shift #for reversing the shift
+            
+        for char in text:
+            if char.isalpha():
+                shift_order = ord('A') if char.isupper() else ord ('a')
+                result += chr((ord(char) - shift_order + shift ) % 26 + shift_order)
+            else:
+                result += char
+        return result
+
+    while True:
+        mode = input("Choose mode [E]ncrypt or [D]ecrypt: ").strip().lower()
+        if mode not in ["e","d"]:
+            print("Invalid mode please choose E or D")
+            continue
+        
+        text = input("\nEnter text: ")
+        shift = int(input("Enter shift value: "))
+        output = caesar_cipher(text, shift,mode)
+        output = caesar_cipher(text, shift, "encrypt" if mode == "e" else "decrypt")
+        print(f"\nResult: [{output}]")
+        
+        if mode == "e":
+            decrypt_choice=input("Do you wanna decrypt this? [y]es or [n]o: ").strip().lower()
+            
+            if decrypt_choice == "y":
+                decrypted_message = caesar_cipher(output,shift,"decrypt")
+                print(f"\nDecrypted: [{decrypted_message}]")
+                
+        repeat = input("Do you wanna go again [y]es or [n]o?:").strip().lower()
+        if repeat != "y":
+             break
 
 def cipher2():
     # Noel Cipher
