@@ -1,5 +1,6 @@
 import random
 import os
+import math
 
 def cipher1():
     # Aldjon Cipher
@@ -44,7 +45,53 @@ def cipher1():
 
 def cipher2():
     # Noel Cipher
-    print("Noel Cipher selected")
+    os.system('cls')
+    print("Transposition Cipher")
+    
+    def encrypt_transposition(plaintext, key):
+        ciphertext = [''] * key
+        for col in range(key):
+            pointer = col
+            while pointer < len(plaintext):
+                ciphertext[col] += plaintext[pointer]
+                pointer += key
+        return ''.join(ciphertext)
+    
+    def decrypt_transposition(ciphertext, key):
+        num_columns = math.ceil(len(ciphertext) / key)
+        num_rows = key
+        num_shaded_boxes = (num_columns * num_rows) - len(ciphertext)
+        plaintext = [''] * num_columns
+        col, row = 0, 0
+        for symbol in ciphertext:
+            plaintext[col] += symbol
+            col += 1
+            if col == num_columns or (col == num_columns - 1 and row >= num_rows - num_shaded_boxes):
+                col = 0
+                row += 1
+        return ''.join(plaintext)
+    
+    while True:
+        plaintext = input("Enter the message to encrypt (Alphabet only, no numbers/symbols): ")
+        if not plaintext.isalpha():
+            print("Invalid input! Only alphabetic characters (A-Z, a-z) are allowed.")
+            continue
+        
+        key = int(input("Enter the key (integer value): "))
+        ciphertext = encrypt_transposition(plaintext, key)
+        print("Ciphertext:", ciphertext)
+        
+        decrypt_choice = input("\nDo you want to decrypt? (Y to decrypt, N to skip): ").strip().lower()
+        if decrypt_choice == 'y':
+            decrypted_text = decrypt_transposition(ciphertext, key)
+            print("Decrypted message:", decrypted_text)
+        else:
+            print("\nDecryption is skipped.")
+        
+        repeat_choice = input("\nDo you want to encrypt another message? (Y to continue, N to exit): ").strip().lower()
+        if repeat_choice != 'y':
+            os.system('cls')
+            break
 
 def cipher3():
     # Lance Cipher
