@@ -86,7 +86,7 @@ def cipher3():
             break
 
 def cipher4():
-    #RAIN CIPHER
+    #RAIN CIPHER#
     def caesar_shift(text): #shifts the letters depending on the lenght of the inputted word also loops back if it goes pass like letter Z
         shift = len(text) % 26 
         encrypted_text = ""
