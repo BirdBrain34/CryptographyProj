@@ -3,6 +3,7 @@ import os
 
 def cipher1():
     # Aldjon Cipher
+    os.system('cls')
     print("Caesar Cipher [Aldjon] selected")
     def caesar_cipher(text,shift,mode):
         result =""
@@ -38,6 +39,7 @@ def cipher1():
                 
         repeat = input("Do you wanna go again [y]es or [n]o?:").strip().lower()
         if repeat != "y":
+             os.system('cls')
              break
 
 def cipher2():
@@ -47,9 +49,10 @@ def cipher2():
 def cipher3():
     # Lance Cipher
     os.system('cls')
+    print("***Vernam cipher***")
     while True:
         while True:
-            plaintext = input("Enter the message to encrypt (Alphabet only, no numbers/symbols): ") #input plaintext to encrypt
+            plaintext = input("\nEnter the message to encrypt (Alphabet only, no numbers/symbols): ") #input plaintext to encrypt
             if plaintext.isalpha(): #Alphabets only 
                 break
             else:

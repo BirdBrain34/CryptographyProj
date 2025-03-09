@@ -1,7 +1,7 @@
 import CryptoFunctions as crypt
 
 def mainMenu():
-    options = ["\n1. Caesar Ciper", "2. Noel Cipher", "3. Vernam Cipher", "4. Mystery Cipher", "5. Exit"]
+    options = ["\n1. Caesar Ciper", "2. Transposition Cipher", "3. Vernam Cipher", "4. Mystery Cipher", "5. Exit"]
     for i in range (len(options)):
         print(options[i])
 
@@ -9,10 +9,11 @@ choice = ''
 choices = ['1','2','3','4','5']
 
 while choice != 5:
+    print("Welcome to Project Kryptos")
     mainMenu()
-    choice = input("Enter your chosen number: ")
+    choice = input("\nEnter your chosen number: ")
     if choice not in choices:
-        print("Your number is invalid! Please input from 1 to 5.")
+        print("Your input is invalid! Please input from 1 to 5.")
     elif choice == '1':
         crypt.cipher1()
     elif choice == '2':
