@@ -87,6 +87,7 @@ def cipher3():
 
 def cipher4():
     #RAIN CIPHER#
+    os.system('cls')
     def caesar_shift(text): #shifts the letters depending on the lenght of the inputted word also loops back if it goes pass like letter Z
         shift = len(text) % 26 
         encrypted_text = ""
@@ -241,5 +242,5 @@ def cipher4():
 
         continue_choice = input("\nDo you want to try again [y]es or [n]o?: ").strip().upper()
         if continue_choice != "Y":
-            print("Goodbye!")
+            os.system('cls')
             break
